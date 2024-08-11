@@ -3,6 +3,7 @@
 //
 
 #include "Push_Button.h"
+#include <Arduino.h>
 #ifdef CLION
 #include <esp32-hal-gpio.h>
 #endif

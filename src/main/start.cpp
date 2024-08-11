@@ -1,6 +1,8 @@
-#ifdef CLION
-#include "Arduino.h"
-#endif
+//#ifdef CLION
+#include <Arduino.h>
+//#endif
+#include "start.h"
+
 #include <Push_Button.h>
 #include <Standard_Led.h>
 
