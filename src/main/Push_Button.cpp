@@ -4,9 +4,6 @@
 
 #include "Push_Button.h"
 #include <Arduino.h>
-#ifdef CLION
-#include <esp32-hal-gpio.h>
-#endif
 
 Push_Button::Push_Button(int pin, bool is_pull_up) {
     this->pin = pin;

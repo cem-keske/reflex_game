@@ -1,10 +1,8 @@
-//#ifdef CLION
 #include <Arduino.h>
-//#endif
 #include "start.h"
 
-#include <Push_Button.h>
-#include <Standard_Led.h>
+#include "Push_Button.h"
+#include "Standard_Led.h"
 
 Standard_Led red_leds[3] = { Standard_Led(32), Standard_Led(26), Standard_Led(14) };
 constexpr size_t no_of_leds = sizeof(red_leds) / sizeof(red_leds[0]);

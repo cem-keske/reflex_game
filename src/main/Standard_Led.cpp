@@ -4,9 +4,7 @@
 
 #include "Standard_Led.h"
 #include <Arduino.h>
-#ifdef CLION
-#include <esp32-hal-gpio.h>
-#endif
+
 
 Standard_Led::Standard_Led(int pin, bool is_on) {
     this->pin_ = pin;
