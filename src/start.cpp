@@ -6,6 +6,12 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "Buzzer.h"
+
+Buzzer buzzer(15);  // Set buzzer pin to digital pin 2
+
+Sheet coffin1({
+    {NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},{NOTE_A, 4, 2.0},{NOTE_B, 4, 2.0},},120);  // 120 BPM
 
 constexpr auto SCREEN_WIDTH  = 128; // OLED display width, in pixels
 constexpr auto SCREEN_HEIGHT = 64; // OLED display height, in pixels
@@ -71,7 +77,25 @@ void winner_decleration(int winner) {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-   // initialize the OLED object
+
+  Sheet twinkle({
+      {NOTE_C, 4, 1.0}, {NOTE_E, 4, 1.0}, {NOTE_G, 4, 1.0}}, 500);  // 120 BPM
+
+  // Play the melody
+  buzzer.playSheet(twinkle);
+  delay(1000);
+  buzzer.playSheet(twinkle);
+  delay(1000);
+  buzzer.playSheet(twinkle);
+  delay(1000);
+  buzzer.playSheet(twinkle);
+  delay(1000);
+  buzzer.playSheet(twinkle);
+  delay(1000);
+  buzzer.playSheet(twinkle);
+  delay(1000);
+
+  // initialize the OLED object
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;); // Don't proceed, loop forever
