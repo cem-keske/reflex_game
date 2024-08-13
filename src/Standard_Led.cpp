@@ -24,6 +24,8 @@ void Standard_Led::toggle() {
 }
 
 void Standard_Led::turn_on() {
+    // Serial.println("Led will turn on.");
+    // Serial.println(this->pin_);
     digitalWrite(this->pin_, HIGH);
     this->status_ = true;
 }
