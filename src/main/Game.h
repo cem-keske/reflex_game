@@ -10,6 +10,7 @@
 #include "Standard_Led.h"
 #include "Push_Button.h"
 #include "Buzzer.h"
+#include "GameParameters.h"
 
 enum Game_state { NOT_STARTED = 0, SEQUENCE_STARTED = 1, LIGHTS_OUT = 2, GAME_ENDED = 3 };
 enum Button_state { PLAYER_1_PRESSED, PLAYER_2_PRESSED, NONE_PRESSED, BOTH_PRESSED };
@@ -17,11 +18,11 @@ enum Button_state { PLAYER_1_PRESSED, PLAYER_2_PRESSED, NONE_PRESSED, BOTH_PRESS
 class Game {
 public:
 
-    Game(const std::vector<Standard_Led>&     red_leds,
+    Game(redLedArray                   red_leds,
         Standard_Led                   green_led,
-        std::array<Standard_Led,2>     yellow_leds,
-        std::array<Push_Button,2>      player_buttons,
-        Buzzer                          buzzer
+        yellowLedArray                 yellow_leds,
+        pushButtonArray                player_buttons,
+        Buzzer                         buzzer
         );
     /* Reads the state of the player buttons and returns
     */
@@ -31,11 +32,10 @@ public:
     Game_state get_state(){return state;};
 
 private:
-
-    std::vector<Standard_Led>     red_leds_;
+    redLedArray                    red_leds_;
     Standard_Led                   green_led_;
-    std::array<Standard_Led,2>     yellow_leds_;
-    std::array<Push_Button,2>      player_buttons_;
+    yellowLedArray                 yellow_leds_;
+    pushButtonArray                player_buttons_;
     Buzzer buzzer_;
     Game_state state = Game_state::NOT_STARTED;
     time_t start_time;
@@ -47,15 +47,8 @@ private:
     void next_state();
     void start_game();
     void update_sequence();
-
     void lights_out();
-
     void declare_winner();
-
-
-
-
-
 };
 
 

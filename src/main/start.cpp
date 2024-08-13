@@ -13,7 +13,6 @@
 
 Buzzer buzzer1(15);  // Set buzzer pin to digital pin 2
 
-
 Sheet winning_sound({
         {NOTE_C, 4, 0.5}, {NOTE_E, 4, 0.5}, {NOTE_G, 4, 0.5}, {NOTE_C, 5, 0.5},
         {NOTE_A, -1, 0.5}, {NOTE_E, 4, 0.5}, {NOTE_C, 5, 1}
@@ -39,13 +38,12 @@ constexpr auto OLED_RESET   =  -1; // Reset pin
 #define SCREEN_ADDRESS 0x3C
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-std::vector<Standard_Led> red_leds = { Standard_Led(32), Standard_Led(26), Standard_Led(14) };
+std::array<Standard_Led,3> red_leds = { Standard_Led(32), Standard_Led(26), Standard_Led(14) };
 std::array<Standard_Led,2> yellow_leds = { Standard_Led(25), Standard_Led(33) };
 Standard_Led green_led(13);
 std::array<Push_Button,2> buttons= {Push_Button(16, false), Push_Button(17, false)};
 
 Game game(red_leds, green_led, yellow_leds, buttons, buzzer1);
-
 
 // void winner_decleration(int winner) {
 //   display.clearDisplay();
@@ -57,7 +55,6 @@ Game game(red_leds, green_led, yellow_leds, buttons, buzzer1);
 //   display.display();
 //   delay(3000);
 //   yellow_leds[winner].turn_off();
-
 
 void setup() {
   // put your setup code here, to run once:
@@ -71,5 +68,5 @@ void loop() {
   game.update();
 
 }
-#include "Buzzer.h"
+
 

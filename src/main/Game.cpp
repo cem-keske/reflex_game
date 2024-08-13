@@ -3,12 +3,11 @@
 //
 
 #include "Game.h"
-#include "GameParameters.h"
 #include <ratio>
 
 
-Game::Game(const std::vector<Standard_Led>& red_leds, Standard_Led green_led, std::array<Standard_Led, 2> yellow_leds,
-    std::array<Push_Button, 2> player_buttons, Buzzer buzzer): red_leds_(red_leds),
+Game::Game(redLedArray red_leds, Standard_Led green_led, yellowLedArray yellow_leds,
+    pushButtonArray player_buttons, Buzzer buzzer): red_leds_(red_leds),
                                                                 green_led_(green_led),
                                                                 yellow_leds_(yellow_leds),
                                                                 player_buttons_(player_buttons),
